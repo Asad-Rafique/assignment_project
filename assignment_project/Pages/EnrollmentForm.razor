@@ -1,0 +1,35 @@
+﻿@page "/enrollmentform"
+using YourNamespace.Models
+@using assignment_project.Data;
+
+<h3>Add Enrollment</h3>
+
+<EditForm Model="@newEnrollment" OnValidSubmit="AddEnrollment">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="cid">Class ID:</label>
+        <InputNumber id="cid" @bind-Value="newEnrollment.Cid" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="sid">Student ID:</label>
+        <InputNumber id="sid" @bind-Value="newEnrollment.Sid" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Enrollment</button>
+</EditForm>
+
+@code {
+    private Enrollment newEnrollment = new Enrollment();
+
+    private void AddEnrollment()
+    {
+        // Add logic to save the new enrollment to the database
+        // dbContext.Enrollments.Add(newEnrollment);
+        // dbContext.SaveChanges();
+        // Optionally, navigate to a different page after adding the enrollment
+        // NavigationManager.NavigateTo("/enrollments");
+    }
+}

@@ -1,0 +1,40 @@
+﻿@page "/facultyform"
+using YourNamespace.Models
+@using assignment_project.Data;
+
+<h3>Add Faculty</h3>
+
+<EditForm Model="@newFaculty" OnValidSubmit="AddFaculty">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="fname">Faculty Name:</label>
+        <InputText id="fname" @bind-Value="newFaculty.Fname" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="deptId">Department ID:</label>
+        <InputNumber id="deptId" @bind-Value="newFaculty.DeptId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="standing">Standing:</label>
+        <InputText id="standing" @bind-Value="newFaculty.Standing" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Faculty</button>
+</EditForm>
+
+@code {
+    private Faculty newFaculty = new Faculty();
+
+    private void AddFaculty()
+    {
+        // Add logic to save the new faculty to the database
+        // dbContext.Faculties.Add(newFaculty);
+        // dbContext.SaveChanges();
+        // Optionally, navigate to a different page after adding the faculty
+        // NavigationManager.NavigateTo("/faculties");
+    }
+}

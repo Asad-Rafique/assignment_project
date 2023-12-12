@@ -1,0 +1,42 @@
+﻿@page "/classform"
+using YourNamespace.Models
+
+
+@using assignment_project.Data;
+
+<h3>Add Class</h3>
+
+<EditForm Model="@newClass" OnValidSubmit="AddClass">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="name">Class Name:</label>
+        <InputText id="name" @bind-Value="newClass.Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="roomNumber">Room Number:</label>
+        <InputText id="roomNumber" @bind-Value="newClass.RoomNumber" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="fid">Faculty ID:</label>
+        <InputNumber id="fid" @bind-Value="newClass.Fid" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Class</button>
+</EditForm>
+
+@code {
+    private Class newClass = new Class();
+
+    private void AddClass()
+    {
+        // Add logic to save the new class to the database
+        // dbContext.Classes.Add(newClass);
+        // dbContext.SaveChanges();
+        // Optionally, navigate to a different page after adding the class
+        // NavigationManager.NavigateTo("/classes");
+    }
+}

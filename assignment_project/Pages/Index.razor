@@ -1,0 +1,47 @@
+﻿@page "/"
+
+@page "/studentform"
+@using assignment_project.Data;
+using YourNamespace.Models
+
+<h3>Add Student</h3>
+
+<EditForm Model="@newStudent" OnValidSubmit="AddStudent">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="sname">Student Name:</label>
+        <InputText id="sname" @bind-Value="newStudent.Sname" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="major">Major:</label>
+        <InputText id="major" @bind-Value="newStudent.Major" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="standing">Standing:</label>
+        <InputText id="standing" @bind-Value="newStudent.Standing" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Student</button>
+</EditForm>
+
+
+
+@code {
+    private Student newStudent = new Student();
+
+    private void AddStudent()
+    {
+        // Add logic to save the new student to the database
+        // dbContext.Students.Add(newStudent);
+        // dbContext.SaveChanges();
+        // Optionally, navigate to a different page after adding the student
+        // NavigationManager.NavigateTo("/students");
+    }
+}
+
+
+
